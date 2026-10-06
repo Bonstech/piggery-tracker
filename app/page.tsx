@@ -2,6 +2,8 @@ import { db } from '@/db';
 import { expenses, sales } from '@/db/schema';
 import { sql } from 'drizzle-orm';
 
+export const dynamic = 'force-dynamic';
+
 export default async function Home() {
   // Fetch total expenses
   const totalExpensesResult = await db
