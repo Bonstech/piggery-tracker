@@ -17,7 +17,7 @@ export default function RootLayout({
       <body className="bg-gray-50 min-h-screen">
         <nav className="bg-white border-b px-6 py-4 flex gap-6 items-center">
           <Link href="/" className="text-black font-bold text-lg">
-            🐷 Piggery Tracker
+            🐷 Piggery@Kaluri
           </Link>
           <Link href="/pigs" className="text-gray-700 hover:text-blue-600">
             Pigs

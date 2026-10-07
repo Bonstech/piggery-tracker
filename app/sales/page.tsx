@@ -43,7 +43,7 @@ export default async function SalesPage() {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="bg-blue-600">
+            <tr className="bg-green-600">
               <th className="border p-3 text-left">Date</th>
               <th className="border p-3 text-left">Pig</th>
               <th className="border p-3 text-left">Buyer</th>
