@@ -49,10 +49,10 @@ export default async function Home() {
       <div className="mt-8 flex flex-wrap gap-3">
       <a href="/expenses/new" className="bg-blue-600 text-white px-4 py-2 rounded">Add Expense</a>
       <a href="/expenses" className="bg-blue-100 text-blue-800 px-4 py-2 rounded">View Expenses</a>
+      <a href="/records" className="bg-purple-600 text-white px-4 py-2 rounded">Records</a>
       <a href="/sales/new" className="bg-green-600 text-white px-4 py-2 rounded">Record Sale</a>
       <a href="/sales" className="bg-green-100 text-green-800 px-4 py-2 rounded">View Sales</a>
       <a href="/pigs" className="bg-yellow-600 text-white px-4 py-2 rounded">Pig Registry</a>
-      <a href="/records" className="bg-purple-600 text-white px-4 py-2 rounded">Records</a>
     </div>
     </main>
   );
