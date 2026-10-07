@@ -4,7 +4,11 @@ import { eq } from 'drizzle-orm';
 import Link from 'next/link';
 import { createSale } from '../actions';
 
+import { requireAuth } from '@/lib/session';
+
 export const dynamic = 'force-dynamic';
+
+await requireAuth();
 
 export default async function NewSalePage() {
   const activePigs = await db

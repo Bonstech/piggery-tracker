@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
+import NavAuth from '@/app/components/NavAuth';
 
 export const metadata: Metadata = {
   title: 'Piggery Tracker',
@@ -31,6 +32,9 @@ export default function RootLayout({
           <Link href="/records" className="text-gray-700 hover:text-blue-600">
             Records
           </Link>
+
+          {/* Sign In / Sign Up / Sign Out — pushed to the right */}
+          <NavAuth />
         </nav>
         <div>{children}</div>
       </body>

@@ -1,5 +1,10 @@
 import Link from 'next/link';
 import { createPig } from '../actions';
+import { requireAuth } from '@/lib/session';
+
+export const dynamic = 'force-dynamic';
+
+await requireAuth();
 
 export default function NewPigPage() {
   return (

@@ -1,8 +1,12 @@
+import { requireAuth } from '@/lib/session';
 import { db } from '@/db';
 import { expenses, sales } from '@/db/schema';
 import { sql } from 'drizzle-orm';
 
+
 export const dynamic = 'force-dynamic';
+
+await requireAuth();
 
 export default async function Home() {
   // Fetch total expenses

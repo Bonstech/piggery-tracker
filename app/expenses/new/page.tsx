@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { createExpense } from '../actions';
+import { requireAuth } from '@/lib/session';
+export const dynamic = 'force-dynamic';
 
+await requireAuth();
 const EXPENSE_CATEGORIES = [
   'Feed',
   'Medicine',

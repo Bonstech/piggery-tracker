@@ -4,9 +4,10 @@ import { desc } from 'drizzle-orm';
 import Link from 'next/link';
 import { deleteExpense } from './actions';
 import DeleteButton from '@/app/components/DeleteButton';
+import { requireAuth } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
-
+await requireAuth();
 export default async function ExpensesPage() {
   const allExpenses = await db.select().from(expenses).orderBy(desc(expenses.date));
 

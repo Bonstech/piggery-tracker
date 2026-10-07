@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { deleteRecord } from './actions';
 import DeleteButton from '@/app/components/DeleteButton';
 
+import { requireAuth } from '@/lib/session';
+
 export const dynamic = 'force-dynamic';
+
+await requireAuth();
 
 const RECORD_TYPES = [
   'Weaning',

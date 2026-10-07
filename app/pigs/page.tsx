@@ -4,8 +4,9 @@ import { desc } from 'drizzle-orm';
 import Link from 'next/link';
 import { deletePig } from './actions';
 import DeleteButton from '@/app/components/DeleteButton';
-
+import { requireAuth } from '@/lib/session';
 export const dynamic = 'force-dynamic';
+await requireAuth();
 
 export default async function PigsPage() {
   const allPigs = await db.select().from(pigs).orderBy(desc(pigs.createdAt));

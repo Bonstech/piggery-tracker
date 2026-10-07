@@ -4,7 +4,11 @@ import { eq } from 'drizzle-orm';
 import Link from 'next/link';
 import { createRecord } from '../actions';
 
+import { requireAuth } from '@/lib/session';
+
 export const dynamic = 'force-dynamic';
+
+await requireAuth();
 
 const RECORD_TYPES = [
   'Weaning',

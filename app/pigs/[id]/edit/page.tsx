@@ -4,8 +4,11 @@ import { eq } from 'drizzle-orm';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { updatePig } from '../../actions';
-
+import { requireAuth } from '@/lib/session';
+    
 export const dynamic = 'force-dynamic';
+
+await requireAuth();
 
 export default async function EditPigPage({
   params,
