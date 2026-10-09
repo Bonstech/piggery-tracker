@@ -1,15 +1,28 @@
-import { auth } from '@/lib/auth';
-import { headers } from 'next/headers';
+import 'server-only';
+import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { db } from '@/db';
+import { accessCodes } from '@/db/schema';
+import { eq } from 'drizzle-orm';
 
 export async function requireAuth() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const cookieStore = await cookies();
+  const token = cookieStore.get('piggery_access')?.value;
 
-  if (!session) {
-    redirect('/sign-in');
+  if (!token) {
+    redirect('/login');
   }
 
-  return session;
+  const rows = await db
+    .select()
+    .from(accessCodes)
+    .where(eq(accessCodes.code, token!));
+
+  const match = rows[0];
+
+  if (!match) {
+    redirect('/login');
+  }
+
+  return match;
 }

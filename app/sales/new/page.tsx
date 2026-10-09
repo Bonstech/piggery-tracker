@@ -8,9 +8,10 @@ import { requireAuth } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
 
-await requireAuth();
+
 
 export default async function NewSalePage() {
+  await requireAuth();
   const activePigs = await db
     .select()
     .from(pigs)

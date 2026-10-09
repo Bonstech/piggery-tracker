@@ -7,8 +7,9 @@ import DeleteButton from '@/app/components/DeleteButton';
 import { requireAuth } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
-await requireAuth();
+
 export default async function ExpensesPage() {
+  await requireAuth();
   const allExpenses = await db.select().from(expenses).orderBy(desc(expenses.date));
 
   const total = allExpenses.reduce((sum, e) => sum + parseFloat(e.amount), 0);

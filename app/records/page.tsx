@@ -9,7 +9,7 @@ import { requireAuth } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
 
-await requireAuth();
+
 
 const RECORD_TYPES = [
   'Weaning',
@@ -24,10 +24,12 @@ const RECORD_TYPES = [
 ];
 
 export default async function RecordsPage({
+  
   searchParams,
 }: {
   searchParams: Promise<{ type?: string; pigId?: string }>;
 }) {
+  await requireAuth();
   const { type, pigId } = await searchParams;
 
   const allRecords = await db

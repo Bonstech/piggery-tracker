@@ -8,13 +8,14 @@ import { requireAuth } from '@/lib/session';
     
 export const dynamic = 'force-dynamic';
 
-await requireAuth();
+
 
 export default async function EditPigPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  await requireAuth();
   const { id } = await params;
   const pigId = parseInt(id);
 

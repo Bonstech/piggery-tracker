@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import './globals.css';
-import NavAuth from '@/app/components/NavAuth';
+import { logout } from '@/app/actions/auth';
 
 export const metadata: Metadata = {
   title: 'Piggery Tracker',
@@ -33,8 +33,11 @@ export default function RootLayout({
             Records
           </Link>
 
-          {/* Sign In / Sign Up / Sign Out — pushed to the right */}
-          <NavAuth />
+         <form action={logout} className="ml-auto">
+            <button className="text-gray-700 hover:text-red-600">
+              Lock
+            </button>
+          </form>
         </nav>
         <div>{children}</div>
       </body>

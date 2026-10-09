@@ -4,9 +4,10 @@ import { requireAuth } from '@/lib/session';
 
 export const dynamic = 'force-dynamic';
 
-await requireAuth();
 
-export default function NewPigPage() {
+
+export default async function NewPigPage() {
+  await requireAuth();   
   return (
     <main className="p-8 max-w-md">
       <h1 className="text-2xl font-bold mb-6">Add New Pig</h1>

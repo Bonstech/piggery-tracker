@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { createExpense } from '../actions';
 import { requireAuth } from '@/lib/session';
+
 export const dynamic = 'force-dynamic';
 
-await requireAuth();
 const EXPENSE_CATEGORIES = [
   'Feed',
   'Medicine',
@@ -16,7 +16,9 @@ const EXPENSE_CATEGORIES = [
   'Other',
 ];
 
-export default function NewExpensePage() {
+export default async function NewExpensePage() {
+  await requireAuth();   // 👈 moved INSIDE the function
+
   return (
     <main className="p-8 max-w-md">
       <h1 className="text-2xl font-bold mb-6">Add Expense</h1>
@@ -52,7 +54,7 @@ export default function NewExpensePage() {
             name="category"
             required
             defaultValue="Feed"
-            className="bg-blue-600 border p-2 w-full rounded"
+            className="border p-2 w-full rounded"
           >
             {EXPENSE_CATEGORIES.map((cat) => (
               <option key={cat} value={cat}>
