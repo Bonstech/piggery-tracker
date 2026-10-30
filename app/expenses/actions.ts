@@ -11,12 +11,14 @@ export async function createExpense(formData: FormData) {
   const amount = formData.get('amount') as string;
   const category = formData.get('category') as string;
   const notes = formData.get('notes') as string;
+  const date = formData.get('date') as string;
 
   await db.insert(expenses).values({
     description,
     amount,
     category: category || 'Other',
     notes: notes || null,
+    date: date ? new Date(date) : undefined,
   });
 
   revalidatePath('/expenses');

@@ -47,6 +47,14 @@ export default async function NewExpensePage() {
             className="border p-2 w-full rounded"
           />
         </div>
+         <div>
+          <label className="block mb-1 font-medium">Date</label>
+          <input
+            name="date"
+            type="date"
+            className="border p-2 w-full rounded"
+          />
+        </div>
 
         <div>
           <label className="block mb-1 font-medium">Category *</label>
